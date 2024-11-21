@@ -1,4 +1,12 @@
-public class Rotulo {
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+
+import aed3.Registro;
+
+public class Rotulo implements Registro {
     private int id;
     private String rotulo;
 
@@ -16,6 +24,10 @@ public class Rotulo {
         return this.id;
     }
 
+    public void setId(int id){
+        this.id = id;
+    }
+
     public String getRotulo(){
         return this.rotulo;
     }
@@ -25,6 +37,26 @@ public class Rotulo {
     }
 
     public String toString(){
-        return this.id + " " + this.rotulo;
+        return "\nID:       : " + this.id + 
+               "\nRotulo:   : " + this.rotulo;
+    }
+
+    public byte[] toByteArray() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        DataOutputStream dos = new DataOutputStream(baos);
+        dos.writeInt(id);
+        dos.writeUTF(rotulo);
+        return baos.toByteArray();
+    }
+
+    public void fromByteArray(byte[] ba) throws IOException {
+        ByteArrayInputStream bais = new ByteArrayInputStream(ba);
+        DataInputStream dis = new DataInputStream(bais);
+        id = dis.readInt();
+        rotulo = dis.readUTF();
+    }
+
+    public int compareTo(Object o) {
+        return this.id - ((Rotulo)o).id;
     }
 }
