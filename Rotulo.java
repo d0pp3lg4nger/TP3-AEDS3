@@ -8,44 +8,50 @@ import aed3.Registro;
 
 public class Rotulo implements Registro {
     private int id;
-    private String rotulo;
+    private String name;
 
-    public Rotulo(int id, String rotulo){
-        this.id = id;
-        this.rotulo = rotulo;
+    public Rotulo() {
+        this(-1, "");
     }
 
-    public Rotulo(int id){
+    public Rotulo(int id, String name) {
         this.id = id;
-        this.rotulo = "";
+        this.name = name;
     }
 
-    public int getId(){
+    public Rotulo(String name) {
+        this.id = -1;
+        this.name = name;
+    }
+
+    public int getId() {
         return this.id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getRotulo(){
-        return this.rotulo;
+    public String getNome() {
+        return this.name;
     }
 
-    public void setRotulo(String rotulo){
-        this.rotulo = rotulo;
+    public void setNome(String name) {
+        this.name = name;
     }
 
-    public String toString(){
-        return "\nID:       : " + this.id + 
-               "\nRotulo:   : " + this.rotulo;
+    public String toString() {
+
+        return "\nID:            : " + this.id +
+                "\nRotulo:        : " + this.name;
     }
 
     public byte[] toByteArray() throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         DataOutputStream dos = new DataOutputStream(baos);
         dos.writeInt(id);
-        dos.writeUTF(rotulo);
+        dos.writeUTF(name);
+
         return baos.toByteArray();
     }
 
@@ -53,10 +59,10 @@ public class Rotulo implements Registro {
         ByteArrayInputStream bais = new ByteArrayInputStream(ba);
         DataInputStream dis = new DataInputStream(bais);
         id = dis.readInt();
-        rotulo = dis.readUTF();
+        name = dis.readUTF();
     }
 
     public int compareTo(Object o) {
-        return this.id - ((Rotulo)o).id;
+        return this.id - ((Rotulo) o).id;
     }
 }
