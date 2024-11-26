@@ -28,6 +28,22 @@ Estende a classe `Arquivo` para gerenciar os dados de tarefas.
 
 ---
 
+### Classe `Tarefas_ctl`
+- **Métodos**:
+- `Tarefas_ctl(ArquivoTarefas arqTarefas, ArquivoCategorias arqCategorias, ArquivoRotulos arqRotulos)`: Construtor que inicializa o controlador com instâncias de `ArquivoTarefas`, `ArquivoCategorias` e `ArquivoRotulos`.
+- `adicionarTarefa(Tarefa tarefa, ArrayList<Integer> rotulos)`: Adiciona uma tarefa e associa rótulos a ela chamando os métodos `create` e `createN` de `ArquivoTarefas`.
+- `atualizarTarefa(Tarefa tarefa, ArrayList<Integer> rotulos)`: Atualiza uma tarefa e seus rótulos, chamando os métodos `update` e `updateN` de `ArquivoTarefas`.
+- `excluirTarefa(int idTarefa)`: Exclui uma tarefa e os rótulos associados a ela, chamando os métodos `delete` e `deleteN` de `ArquivoTarefas`.
+- `getRotulosId(int idTarefa)`: Retorna os rótulos associados a uma tarefa, chamando o método `getN` de `ArquivoTarefas`.
+- `getTarefaByID(int id)`: Retorna uma tarefa com o ID especificado, chamando o método `read` de `ArquivoTarefas`.
+- `getTarefas()`: Retorna todas as tarefas, chamando o método `getTarefas` de `ArquivoTarefas`.
+- `getTarefasByCategoria(int idCategoria)`: Retorna as tarefas associadas a uma categoria, chamando o método `buscarPorCategoria` de `ArquivoTarefas`.
+- `getTarefasByRotulos(ArrayList<Integer> idRotulo)`: Retorna as tarefas associadas a uma lista de rótulos, chamando o método `getTarefasbyRotulos` de `ArquivoTarefas`.
+- `getCategorias()`: Retorna todas as categorias, chamando o método `getCategorias` de `ArquivoCategorias`.
+- `getRotulos()`: Retorna todos os rótulos, chamando o método `getRotulos` de `ArquivoRotulos`.
+
+---
+
 ### Classe `ArquivoRotulos`
 Estende a classe `Arquivo` para gerenciar os dados de tarefas.
 - **Métodos**:
