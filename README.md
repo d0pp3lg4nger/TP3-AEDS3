@@ -112,12 +112,16 @@ A classe `StopWords` gerencia palavras consideradas irrelevantes em processos de
 
 ---
 
-### Classe `Categorias_ctl`
-Controla o gerenciamento de categorias.
+### Classe `MenuStopWords`
+A classe `MenuStopWords` fornece uma interface de linha de comando interativa para gerenciar palavras de parada (stopwords) usando a classe `StopWords`. Ela permite ao usuário adicionar, excluir, atualizar, listar e refatorar as palavras de parada armazenadas.
 - **Métodos**:
-  - `adicionarCategoria`: Tenta adicionar uma nova categoria, caso seja possível utiliza o create do ArquivoCategorias.
-  - `excluirCategoria`: Realiza as verificações necessárias e utiliza o delete do ArquivoCategorias para excluir a categoria.
-  - `gerarRelatorioTarefasPorCategoria`: Utiliza o printCategorias do ArquivoCategorias para mostrar todas as categorias e a tarefas vinculadas a cada uma.
+- `MenuStopWords(StopWords stopWords)`: Construtor que inicializa o menu com uma instância de `StopWords` e um scanner para captura de entradas do usuário.
+- `menu()`: Exibe o menu interativo e executa a ação correspondente com base na opção escolhida pelo usuário.
+- `adicionarStopWords()`: Permite ao usuário adicionar palavras ao arquivo de stopwords.
+- `excluirStopWords()`: Permite ao usuário excluir palavras do arquivo de stopwords.
+- `atualizarStopWords()`: Permite ao usuário atualizar uma palavra existente, deletando a antiga e adicionando a nova.
+- `listarStopWords()`: Exibe todas as palavras de stopwords armazenadas no arquivo.
+- `RefactorStopWords()`: Refatora os dados, removendo palavras excluídas e mantendo apenas as palavras ativas.
 
 ---
 
