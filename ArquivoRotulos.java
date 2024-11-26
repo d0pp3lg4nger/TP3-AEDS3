@@ -94,7 +94,7 @@ public class ArquivoRotulos extends Arquivo<Rotulo> {
     public ArrayList<Rotulo> getRotulosByTarefa(int idTarefa) throws Exception {
         ArrayList<Rotulo> rotulos = new ArrayList<>();
 
-        ArrayList<ParIdId> pares = indiceTarefaRotulo.read(new ParIdId(idTarefa, -1));
+        ArrayList<ParIdId> pares = indiceRotuloTarefa.read(new ParIdId(idTarefa, -1));
         for (ParIdId idR : pares) {
             Rotulo rotulo = read(idR.getId2());
             if (rotulo != null) {
