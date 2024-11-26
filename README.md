@@ -142,38 +142,8 @@ A classe `MenuStopWords` fornece uma interface de linha de comando interativa pa
 
 ---
 
-### Classe `Tarefas_ctl`
-Controla o gerenciamento de tarefas.
-- **Métodos**:
-  - `adicionarTarefa`: Tenta adicionar uma nova tarefa, caso seja possível utiliza o create do ArquivoTarefas.
-  - `excluirTarefa`: Realiza as verificações necessárias e utiliza o delete do ArquivoTarefas para excluir a categoria.
-  - `printTarefas`: Utiliza o printTarefas do ArquivoTarefas para mostrar todas tarefas.
-
----
-
 ### Classe `IO`
-Classe principal utilizada para testar a funcionalidade do projeto. Possui o Menu inicial e chama os menus de categoria e tarefa dependendo da opção.
-
----
-
-### Classe `MenuCategorias`
-Fornece uma interface de menu para o gerenciamento de categorias, permitindo ao usuário criar, atualizar, listar e excluir categorias de forma intuitiva.
-- **Métodos**:
-  - `menu()`: Exibe as opções de menu e chama os métodos de controle de acordo com as escolhas do usuário.
-  - `adicionarCategoria`: Adiciona uma nova categoria.
-  - `excluirCategoria`: Exclui uma categoria existente.
-  - `listarCategorias`: Lista todas as categorias.
-  - `gerarRelatorioTarefasPorCategoria`: Gera um relatório de tarefas agrupadas por categoria.
-
----
-
-### Classe `MenuTarefas`
-Fornece uma interface de menu para o gerenciamento de tarefas, permitindo ao usuário criar, atualizar, listar e excluir tarefas de forma intuitiva.
-- **Métodos**:
-  - `menu`: Exibe o menu de operações disponíveis para tarefas.
-  - `adicionarTarefa`: Adiciona uma nova tarefa a uma categoria selecionada.
-  - `excluirTarefa`: Exclui uma tarefa existente.
-  - `listarTarefas`: Lista todas as tarefas registradas.
+Classe principal utilizada para testar a funcionalidade do projeto. Possui o Menu inicial e chama os menus de categoria, tarefa e rótulo dependendo da opção.
 
 ---
 
