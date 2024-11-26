@@ -69,6 +69,18 @@ Estende a classe `Arquivo` para gerenciar os dados de tarefas.
 
 ---
 
+### Classe `Rotulo_ctl`
+- **Métodos**:
+- `Rotulos_ctl(ArquivoRotulos arqRotulo, ArquivoTarefas arqTarefas)`: Construtor que inicializa o controlador com instâncias de `ArquivoRotulos` e `ArquivoTarefas`.
+- `adicionarRotulo(Rotulo rotulo)`: Adiciona um novo rótulo chamando o método `create` do `ArquivoRotulos`.
+- `atualizarRotulo(Rotulo rotulo)`: Atualiza um rótulo chamando o método `update` do `ArquivoRotulos`.
+- `excluirRotulo(int idTarefa)`: Exclui um rótulo, chamando o método `delete` do `ArquivoRotulos`.
+- `getRotulosByTarefa(int idTarefa)`: Retorna a lista de rótulos associados a uma tarefa, chamando `getRotulosByTarefa` do `ArquivoRotulos`.
+- `getRotulos()`: Retorna todos os rótulos disponíveis, chamando `getRotulos` do `ArquivoRotulos`.
+- `getTarefas()`: Retorna a lista de tarefas disponíveis, chamando `getTarefas` do `ArquivoTarefas`.
+
+---
+
 ### Classe `Categoria`
 Define a entidade `Categoria`, que permite organizar tarefas em grupos.
 - **Métodos**:
