@@ -53,6 +53,22 @@ Estende a classe `Arquivo` para gerenciar os dados de tarefas.
 
 ---
 
+### Classe `MenuRotulos`
+- **Métodos**:
+- `Rotulo()`: Construtor padrão que inicializa o rótulo com ID -1 e nome vazio.
+- `Rotulo(int id, String name)`: Construtor que inicializa o rótulo com ID e nome fornecidos.
+- `Rotulo(String name)`: Construtor que inicializa o rótulo com um nome fornecido e ID -1.
+- `getId()`: Retorna o ID do rótulo.
+- `setId(int id)`: Define o ID do rótulo.
+- `getNome()`: Retorna o nome do rótulo.
+- `setNome(String name)`: Define o nome do rótulo.
+- `toString()`: Retorna uma representação em formato de texto do rótulo.
+- `toByteArray()`: Serializa o rótulo em um array de bytes.
+- `fromByteArray(byte[] ba)`: Reconstrói o rótulo a partir de um array de bytes.
+- `compareTo(Object o)`: Compara o rótulo atual com outro objeto do tipo `Rotulo` pelo ID.
+
+---
+
 ### Classe `Categoria`
 Define a entidade `Categoria`, que permite organizar tarefas em grupos.
 - **Métodos**:
