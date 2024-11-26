@@ -18,6 +18,7 @@ public class ArquivoRotulos extends Arquivo<Rotulo> {
     public void create(Rotulo rotulo) throws Exception {
         super.create(rotulo);
         indiceTarefaRotulo.create(new ParIdId(rotulo.getId(), -1));
+        indiceRotuloTarefa.create(new ParIdId(-1, rotulo.getId()));
 
     }
 
@@ -86,7 +87,7 @@ public class ArquivoRotulos extends Arquivo<Rotulo> {
     public ArrayList<Rotulo> getRotulos() throws Exception {
         ArrayList<Rotulo> rotulos = new ArrayList<>();
 
-        ArrayList<ParIdId> pares = indiceTarefaRotulo.read(null);
+        ArrayList<ParIdId> pares = indiceRotuloTarefa.read(new ParIdId(-1, -1));
         for (ParIdId idR : pares) {
             Rotulo rotulo = read(idR.getId1());
             if (rotulo != null) {

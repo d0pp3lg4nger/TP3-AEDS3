@@ -475,7 +475,30 @@ public class MenuTarefas {
         } while (opt == 0);
     }
 
-    private void buscarPorCategoria() {
+    private void buscarPorCategoria() throws Exception {
+
+        System.out.println("-----------------");
+        System.out.print("Categorias : ");
+        ArrayList<Categoria> categorias = ctlCategorias.getCategorias();
+        for (int i = 0; i < categorias.size(); i++) {
+            System.out.println("\t(" + (i + 1) + ") " + categorias.get(i).getNome());
+        }
+
+        System.out.print("Opcao: ");
+        int escolhaCategoria = scanner.nextInt();
+        scanner.nextLine();
+
+        int idCategoria = categorias.get(escolhaCategoria - 1).getId();
+
+        ArrayList<Tarefa> tarefas = ctlTarefas.getTarefasByCategoria(idCategoria);
+        System.out.print("\n Tarefas nessa categoria : ");
+        for (Tarefa tarefa : tarefas) {
+            System.out.println(tarefa.toString());
+        }
+
+        System.out.println("<> Enter para continuar...");
+        scanner.nextLine();
+
         return;
     }
 

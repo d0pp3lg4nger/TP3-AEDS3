@@ -42,6 +42,10 @@ public class Tarefas_ctl {
         return arqTarefas.getTarefas();
     }
 
+    public ArrayList<Tarefa> getTarefasByCategoria(int idCategoria) throws Exception {
+        return arqTarefas.buscarPorCategoria(idCategoria);
+    }
+
     public ArrayList<Categoria> getCategorias() throws Exception {
         return arqCategorias.getCategorias();
     }
