@@ -331,7 +331,7 @@ public class MenuTarefas {
                 ctlRotulos.getRotulosByTarefa(tarefa.getId()).forEach(
                         Rotulo -> {
                             try {
-                                System.out.println(Rotulo.toString());
+                                System.out.println("Rotulo: " + Rotulo.toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
