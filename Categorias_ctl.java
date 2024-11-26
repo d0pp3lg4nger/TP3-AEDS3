@@ -13,14 +13,12 @@ public class Categorias_ctl {
         ArrayList<Categoria> categoriasExistentes = arquivoCategorias.searchByNome(categoria.getNome());
         if (!categoriasExistentes.isEmpty()) {
             System.out.println("Categoria '" + categoria.getNome() + "' ja existe.");
-            return false; 
+            return false;
         }
-    
+
         arquivoCategorias.create(categoria);
         return true;
     }
-    
-    
 
     public boolean excluirCategoria(int idCategoria) throws Exception {
         ArrayList<Tarefa> tarefas = arquivoTarefas.buscarPorCategoria(idCategoria);
@@ -31,12 +29,11 @@ public class Categorias_ctl {
             return false;
         }
     }
-    
 
     public void gerarRelatorioTarefasPorCategoria() throws Exception {
         ArrayList<Categoria> categorias = arquivoCategorias.getCategorias();
         for (Categoria categoria : categorias) {
-            System.out.println("\nCategoria: " + categoria.getNome() +"\n");
+            System.out.println("\nCategoria: " + categoria.getNome() + "\n");
             ArrayList<Tarefa> tarefas = arquivoTarefas.buscarPorCategoria(categoria.getId());
             System.out.println("- Tarefa(s): \n");
             for (Tarefa tarefa : tarefas) {
@@ -47,5 +44,9 @@ public class Categorias_ctl {
 
     public ArrayList<Categoria> getCategorias() throws Exception {
         return arquivoCategorias.getCategorias();
+    }
+
+    public Categoria getCategoriaById(int id) throws Exception {
+        return arquivoCategorias.read(id);
     }
 }

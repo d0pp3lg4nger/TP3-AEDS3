@@ -1,9 +1,10 @@
-import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 
 import aed3.Arquivo;
 import aed3.ArvoreBMais;
+import aed3.HashExtensivel;
+import aed3.ParIDEndereco;
 
 public class ArquivoRotulos extends Arquivo<Rotulo> {
     private ArvoreBMais<ParIdId> indiceTarefaRotulo;
@@ -86,15 +87,8 @@ public class ArquivoRotulos extends Arquivo<Rotulo> {
     }
 
     public ArrayList<Rotulo> getRotulos() throws Exception {
-        ArrayList<Rotulo> rotulos = new ArrayList<>();
 
-        ArrayList<ParIdId> pares = indiceRotuloTarefa.read(new ParIdId(-2, -1));
-        for (ParIdId idR : pares) {
-            Rotulo rotulo = read(idR.getId1());
-            if (rotulo != null) {
-                rotulos.add(rotulo);
-            }
-        }
+        ArrayList<Rotulo> rotulos = readN();
 
         return rotulos;
     }

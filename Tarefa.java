@@ -141,7 +141,6 @@ public class Tarefa implements Registro {
                 "\nData de Criacao   : " + this.dataCriacao +
                 "\nData de Conclusao : " + this.dataConclusao +
                 "\nStatus            : " + this.status +
-                "\nPrioridade        : " + this.prioridade +
-                "\nID Categoria      : " + this.idCategoria;
+                "\nPrioridade        : " + this.prioridade;
     }
 }

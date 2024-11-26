@@ -234,4 +234,27 @@ public class ArquivoTarefas extends Arquivo<Tarefa> {
         return tarefas;
     }
 
+    public ArrayList<Tarefa> getTarefasbyRotulos(ArrayList<Integer> idRotulo) throws Exception {
+        ArrayList<Tarefa> tarefas = new ArrayList<>();
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int id : idRotulo) {
+            ArrayList<ParIdId> pares = indiceRotuloTarefa.read(new ParIdId(id, -1));
+            for (ParIdId par : pares) {
+                Tarefa tarefa = read(par.getId2());
+                if (tarefa != null) {
+                    map.put(tarefa.getId(), map.getOrDefault(tarefa.getId(), 0) + 1);
+                }
+            }
+        }
+
+        for (int id : map.keySet()) {
+            if (map.get(id) == idRotulo.size()) {
+                tarefas.add(read(id));
+            }
+        }
+
+        return tarefas;
+    }
 }

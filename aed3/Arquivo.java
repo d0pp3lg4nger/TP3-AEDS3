@@ -17,7 +17,7 @@ public class Arquivo<T extends Registro> {
     String nomeArquivo;
     final int TAM_CABECALHO = 4;
     Constructor<T> construtor;
-    HashExtensivel<ParIDEndereco> indiceDireto;
+    public HashExtensivel<ParIDEndereco> indiceDireto;
 
     // ----------------------------- Construtor -----------------------------//
     public Arquivo(Constructor<T> c, String n) throws Exception {
@@ -85,6 +85,29 @@ public class Arquivo<T extends Registro> {
             }
         }
         return null;
+    }
+
+    public ArrayList<T> readAll() throws Exception {
+        short tam;
+        byte[] b;
+        byte lapide;
+        ArrayList<T> entidades = new ArrayList<>();
+        T entidade = this.construtor.newInstance();
+
+        arquivo.seek(0);
+        arquivo.skipBytes(TAM_CABECALHO);
+        while (arquivo.getFilePointer() < arquivo.length()) {
+            lapide = arquivo.readByte();
+            tam = arquivo.readShort();
+            b = new byte[tam];
+            arquivo.read(b);
+            if (lapide == ' ') {
+                entidade.fromByteArray(b);
+                entidades.add(entidade);
+            }
+        }
+
+        return entidades;
     }
 
     public boolean delete(int id) throws Exception {

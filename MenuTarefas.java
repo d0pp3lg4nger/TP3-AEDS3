@@ -327,7 +327,15 @@ public class MenuTarefas {
             System.out.println("Lista de Tarefas:");
             for (Tarefa tarefa : tarefas) {
                 System.out.println(tarefa.toString());
-
+                System.out.println("Categoria: " + ctlCategorias.getCategoriaById(tarefa.getIdCategoria()).toString());
+                ctlRotulos.getRotulosByTarefa(tarefa.getId()).forEach(
+                        Rotulo -> {
+                            try {
+                                System.out.println(Rotulo.toString());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        });
             }
         }
     }
@@ -373,18 +381,9 @@ public class MenuTarefas {
         private int id;
         private float probability;
 
-        public SearchElement() {
-            id = -1;
-            probability = 0;
-        }
-
         public SearchElement(int id, float probability) {
             this.id = id;
             this.probability = probability;
-        }
-
-        public int getId() {
-            return id;
         }
 
         @Override
@@ -465,9 +464,20 @@ public class MenuTarefas {
             // select
             opt = scanner.nextInt();
 
+            Tarefa tarefa = ctlTarefas.getTarefaByID(searchList.get(opt - 1).id);
+
             if (opt > 0 && opt <= searchList.size()) {
                 System.out.println("-----------------");
-                System.out.println(ctlTarefas.getTarefaByID(searchList.get(opt - 1).id).toString());
+                System.out.println(tarefa.toString());
+                System.out.println("Categoria: " + ctlCategorias.getCategoriaById(tarefa.getIdCategoria()).toString());
+                ctlRotulos.getRotulosByTarefa(tarefa.getId()).forEach(
+                        Rotulo -> {
+                            try {
+                                System.out.println(Rotulo.toString());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        });
                 System.out.println();
                 return;
             }
@@ -494,6 +504,7 @@ public class MenuTarefas {
         System.out.print("\n Tarefas nessa categoria : \n ");
         for (Tarefa tarefa : tarefas) {
             System.out.println(tarefa.toString());
+            System.out.println("Categoria: " + ctlCategorias.getCategoriaById(tarefa.getIdCategoria()).toString());
             ctlRotulos.getRotulosByTarefa(tarefa.getId()).forEach(
                     Rotulo -> {
                         try {
@@ -510,7 +521,37 @@ public class MenuTarefas {
         return;
     }
 
-    private void buscarRotulos() {
+    private void buscarRotulos() throws Exception {
+
+        System.out.println("-----------------");
+        System.out.println("Rotulos : ");
+        ArrayList<Rotulo> rotulos = ctlRotulos.getRotulos();
+        for (int i = 0; i < rotulos.size(); i++) {
+            System.out.println("\t(" + (i + 1) + ") " + rotulos.get(i).getNome());
+        }
+        System.out.println("\n\t( 0 ) Fim");
+
+        ArrayList<Integer> idRotulos = new ArrayList<Integer>();
+        System.out.print("\nOpçao: ");
+
+        int escolhaRotulo = scanner.nextInt();
+        while (escolhaRotulo != 0) {
+            if (escolhaRotulo > rotulos.size() || escolhaRotulo < 0) {
+                System.out.println("Opcao invalida.");
+            } else {
+                idRotulos.add(rotulos.get(escolhaRotulo - 1).getId());
+            }
+            escolhaRotulo = scanner.nextInt();
+        }
+        scanner.nextLine();
+
+        ArrayList<Tarefa> tarefas = ctlTarefas.getTarefasByRotulos(idRotulos);
+        System.out.print("\n Tarefas com esses rotulos : \n ");
+        for (Tarefa tarefa : tarefas) {
+            System.out.println(tarefa.toString());
+            System.out.println("Categoria: " + ctlCategorias.getCategoriaById(tarefa.getIdCategoria()).toString());
+        }
+
         return;
     }
 }

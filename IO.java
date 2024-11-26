@@ -1,4 +1,3 @@
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 import aed3.ListaInvertida;
