@@ -7,7 +7,7 @@ public class IO {
     public static void main(String[] args) {
 
         try {
-            StopWords stopWords = new StopWords("dicionario.stopWorlds");
+            StopWords stopWords = new StopWords("dicionario.stopWords");
 
             ArquivoCategorias arqCategorias = new ArquivoCategorias(Categoria.class.getConstructor(), "categorias");
             ArquivoTarefas arqTarefas = new ArquivoTarefas(Tarefa.class.getConstructor(), "tarefas", stopWords);
