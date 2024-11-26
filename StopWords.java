@@ -186,16 +186,18 @@ public class StopWords {
 
         for (String w : words) {
             w = Normalizer.normalize(w, Normalizer.Form.NFD).toLowerCase();
-            map.put(w, null);
+            map.put(w, 1);
         }
 
         for (String w : stopWords) {
-            if (map.get(w) != null) {
-                lt.add(w);
-            }
+            map.remove(w);
         }
 
-        String[] ret = new String[lt.size()];
+        String[] ret = new String[map.size()];
+
+        map.forEach((k, v) -> {
+            lt.add(k);
+        });
 
         for (int i = 0; i < lt.size(); i++) {
             ret[i] = lt.get(i);

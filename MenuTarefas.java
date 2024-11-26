@@ -410,10 +410,12 @@ public class MenuTarefas {
 
             // Calculate Probability for Name
             String[] words = scanner.nextLine().split(" ");
-            for (int i = 0; i < words.length; i++) {
-                words[i] = Normalizer.normalize(words[i], Normalizer.Form.NFD).toLowerCase();
-            }
+
             words = stopWords.filter(words);
+            System.out.println("N : " + words.length);
+            for (int i = 0; i < words.length; i++) {
+                System.out.println(words[i]);
+            }
 
             HashMap<String, HashMap<Integer, Float>> lmap = new HashMap<>();
             HashMap<Integer, Float> finalMap = new HashMap<>();
