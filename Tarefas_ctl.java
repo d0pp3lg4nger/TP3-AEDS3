@@ -54,7 +54,7 @@ public class Tarefas_ctl {
         return arqCategorias.getCategorias();
     }
 
-    public ArrayList<Rotulo> geRotulos() throws Exception {
+    public ArrayList<Rotulo> getRotulos() throws Exception {
         return arqRotulos.getRotulos();
     }
 }
