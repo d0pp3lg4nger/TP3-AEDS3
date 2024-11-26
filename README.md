@@ -9,29 +9,22 @@ Este projeto expande as funcionalidades do sistema de gerenciamento de tarefas a
 - Lucas Henrique Rocha Hauck
 
 ## Estrutura das Classes
-
-### Classe `ArquivoCategorias`
-Estende a classe `Arquivo` para gerenciar os dados de categorias.
-- **Métodos**:
-  
-  - `ArquivoCategorias`: Construtor extendido de arquivo.
-  - `create(Categoria categoria)`: Insere uma nova categoria e atualiza o índice indireto.
-  - `delete(int id)`: Remove uma categoria e assegura que nenhuma tarefa esteja vinculada a ela.
-  - `update(Categoria novaCategoria)`: Atualiza o registro de uma categoria e sincroniza o índice indireto.
-  - `searchByNome`: Procura as categorias compatíveis com a busca e retorna uma lista com as compatíveis.
-  - `printCategorias`: Retorna uma lista das categorias ordenadas por nome.
-  - `formatNome`: Formata o nome, deixando a primeira letra maiúscula.
-
 ---
 
 ### Classe `ArquivoTarefas`
 Estende a classe `Arquivo` para gerenciar os dados de tarefas.
 - **Métodos**:
-  - `create(Tarefa tarefa)`: Insere uma nova tarefa, vinculando-a a uma categoria existente.
-  - `delete(int id)`: Remove uma tarefa e atualiza o índice de categoria.
-  - `update(Tarefa novaTarefa)`: Atualiza uma tarefa e seu vínculo com a categoria, se necessário.
-  - `buscarPorCategoria`: Retorna uma lista das tarefas pertencentes a uma categoria buscada.
-  - `printTarefas`: Retorna uma lista com as tarefas.
+- `create(Tarefa tarefa):` Insere uma nova tarefa e a associa a uma categoria.
+- `createN(int idTarefa, ArrayList<Integer> id2):` Vincula uma tarefa a múltiplos rótulos.
+- `getN(int idTarefa):` Retorna os IDs dos rótulos associados a uma tarefa.
+- `delete(int id):` Remove uma tarefa e atualiza os índices relacionados.
+- `deleteN(int idTarefa):` Remove os vínculos de uma tarefa com seus rótulos.
+- `update(Tarefa novaTarefa):` Atualiza uma tarefa, incluindo vínculos com categorias e índices.
+- `updateN(int idTarefa, ArrayList<Integer> id2):` Atualiza os rótulos vinculados a uma tarefa.
+- `buscarPorCategoria(int idCategoria):` Lista as tarefas de uma categoria específica.
+- `printTarefas():` Exibe todas as tarefas disponíveis.
+- `getTarefas():` Retorna uma lista com todas as tarefas.
+- `getTarefasbyRotulos(ArrayList<Integer> idRotulo):` Retorna tarefas associadas a todos os rótulos fornecidos.
 
 ---
 
