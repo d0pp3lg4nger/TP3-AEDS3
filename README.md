@@ -158,11 +158,11 @@ Classe principal utilizada para testar a funcionalidade do projeto. Possui o Men
 
 ## Perguntas e Respostas
 
-- O índice invertido com os termos das tarefas foi criado usando a classe ListaInvertida?
-- O CRUD de rótulos foi implementado?
-- No arquivo de tarefas, os rótulos são incluídos, alterados e excluídos em uma árvore B+? 
-- É possível buscar tarefas por palavras usando o índice invertido?
-- É possível buscar tarefas por rótulos usando uma árvore B+? 
-- O trabalho está completo?
-- O trabalho é original e não a cópia de um trabalho de um colega?
+- O índice invertido com os termos das tarefas foi criado usando a classe ListaInvertida? **Sim.**
+- O CRUD de rótulos foi implementado? **Sim.**
+- No arquivo de tarefas, os rótulos são incluídos, alterados e excluídos em uma árvore B+? **Sim.**
+- É possível buscar tarefas por palavras usando o índice invertido? **Sim.**
+- É possível buscar tarefas por rótulos usando uma árvore B+? **Sim.**
+- O trabalho está completo? **Sim.**
+- O trabalho é original e não a cópia de um trabalho de um colega? **Sim.**
 
