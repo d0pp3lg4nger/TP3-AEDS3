@@ -420,15 +420,12 @@ public class MenuTarefas {
             for (String word : words) {
                 word = Normalizer.normalize(word, Normalizer.Form.NFD).toLowerCase();
                 ElementoLista e[] = list.read(word);
-                System.out.println("debug :" + word);
 
                 localIDF = Float.valueOf(e.length) / Float.valueOf(list.numeroEntidades());
-                System.out.println("debug :" + list.numeroEntidades());
 
                 HashMap<Integer, Float> map = new HashMap<>();
 
                 for (ElementoLista a : e) {
-                    System.out.println("debug :" + a.getId() + " - " + a.getFrequencia());
                     if (!map.containsKey(a.getId())) {
                         map.put(a.getId(), 0f);
                     }
