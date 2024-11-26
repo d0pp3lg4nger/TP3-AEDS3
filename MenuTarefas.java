@@ -410,6 +410,9 @@ public class MenuTarefas {
 
             // Calculate Probability for Name
             String[] words = scanner.nextLine().split(" ");
+            for (int i = 0; i < words.length; i++) {
+                words[i] = Normalizer.normalize(words[i], Normalizer.Form.NFD).toLowerCase();
+            }
             words = stopWords.filter(words);
 
             HashMap<String, HashMap<Integer, Float>> lmap = new HashMap<>();
@@ -418,7 +421,6 @@ public class MenuTarefas {
             list.numeroEntidades();
 
             for (String word : words) {
-                word = Normalizer.normalize(word, Normalizer.Form.NFD).toLowerCase();
                 ElementoLista e[] = list.read(word);
 
                 localIDF = Float.valueOf(e.length) / Float.valueOf(list.numeroEntidades());
