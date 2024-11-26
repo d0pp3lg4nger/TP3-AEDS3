@@ -42,8 +42,8 @@ public class Rotulo implements Registro {
 
     public String toString() {
 
-        return "\nID:            : " + this.id +
-                "\nRotulo:        : " + this.name;
+        return "   ID: " + id + " | Nome: " + name;
+
     }
 
     public byte[] toByteArray() throws IOException {
