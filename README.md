@@ -28,6 +28,20 @@ Estende a classe `Arquivo` para gerenciar os dados de tarefas.
 
 ---
 
+### Classe `ArquivoRotulos`
+Estende a classe `Arquivo` para gerenciar os dados de tarefas.
+- **Métodos**:
+- `create(Rotulo rotulo)`: Insere um novo rótulo e inicializa seus índices.
+- `createN(int idRotulo, ArrayList<Integer> id2)`: Vincula um rótulo a múltiplas tarefas.
+- `read(int id)`: Retorna o rótulo correspondente ao ID fornecido.
+- `getN(int idRotulo)`: Retorna os IDs das tarefas associadas a um rótulo.
+- `update(Rotulo rotulo)`: Atualiza as informações de um rótulo.
+- `updateN(int idRotulo, ArrayList<Integer> id2)`: Atualiza os vínculos entre um rótulo e suas tarefas.
+- `delete(int id)`: Remove um rótulo e seus vínculos com as tarefas.
+- `getRotulos()`: Retorna todos os rótulos disponíveis.
+- `getRotulosByTarefa(int idTarefa)`: Retorna os rótulos associados a uma tarefa específica.
+---
+
 ### Classe `Categoria`
 Define a entidade `Categoria`, que permite organizar tarefas em grupos.
 - **Métodos**:
