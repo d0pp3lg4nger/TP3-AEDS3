@@ -92,8 +92,7 @@ public class Arquivo<T extends Registro> {
         byte[] b;
         byte lapide;
         ArrayList<T> entidades = new ArrayList<>();
-        T entidade = this.construtor.newInstance();
-
+        
         arquivo.seek(0);
         arquivo.skipBytes(TAM_CABECALHO);
         while (arquivo.getFilePointer() < arquivo.length()) {
@@ -102,6 +101,7 @@ public class Arquivo<T extends Registro> {
             b = new byte[tam];
             arquivo.read(b);
             if (lapide == ' ') {
+                T entidade = this.construtor.newInstance();
                 entidade.fromByteArray(b);
                 entidades.add(entidade);
             }
