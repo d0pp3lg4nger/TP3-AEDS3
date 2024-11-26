@@ -149,11 +149,9 @@ Classe principal utilizada para testar a funcionalidade do projeto. Possui o Men
 
 ## Experiência
 
-- **Dificuldades**: O principal desafio foi manter a organização dos diferentes arquivos e classes e lembrar onde está implementado cada funcionalidade envolvida no projeto. Também foram enfrentados problemas ao manter a compatibilidade entre um código e outro,
-  causado ou pela herança feita de forma errada (Por exemplo ao usar o método toString de um objeto usar o toString padrão da classe Object.
+- **Dificuldades**: Entender e implementar o relacionamento N:N.
   
-- **Funcionamento**: Foi criada a entidade Categoria para agrupar as tarefas, além do CRUD de categorias e relacionamento entre categorias e tarefas. Também foram feitas as visões e os controles de tarefas e categorias para proporcionar uma interface interativa
-  para o usuário.
+- **Funcionamento**: O projeto gerencia tarefas com relacionamentos N:N entre tarefas, categorias e rótulos. Utiliza listas invertidas e árvores B+ para otimizar as buscas. O usuário pode adicionar, atualizar, excluir e listar tarefas, categorias, rótulos e palavras de parada, com buscas eficientes por nome, categoria e rótulos.
 
 
 ## Perguntas e Respostas
