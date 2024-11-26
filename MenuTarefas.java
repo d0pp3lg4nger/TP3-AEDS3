@@ -446,7 +446,6 @@ public class MenuTarefas {
             ArrayList<SearchElement> searchList = new ArrayList<>();
 
             finalMap.forEach((k, d) -> {
-                System.out.println("debug :" + k);
                 searchList.add(new SearchElement(k, d));
             });
 
