@@ -44,8 +44,7 @@ Estende a classe `Arquivo` para gerenciar os dados de tarefas.
 ---
 
 ### Classe `MenuRotulos`
-# Métodos da Classe MenuRotulos
-
+- **Métodos**:
 - `menu()`: Exibe o menu principal para manipulação de rótulos e processa a escolha do usuário.
 - `adicionarRotulo()`: Solicita informações do usuário e adiciona um novo rótulo.
 - `atualizarRotulo()`: Permite ao usuário selecionar e atualizar um rótulo existente.
