@@ -412,10 +412,6 @@ public class MenuTarefas {
             String[] words = scanner.nextLine().split(" ");
 
             words = stopWords.filter(words);
-            System.out.println("N : " + words.length);
-            for (int i = 0; i < words.length; i++) {
-                System.out.println(words[i]);
-            }
 
             HashMap<String, HashMap<Integer, Float>> lmap = new HashMap<>();
             HashMap<Integer, Float> finalMap = new HashMap<>();
@@ -458,6 +454,7 @@ public class MenuTarefas {
             // get Tarefas
             System.out.println("- 0 : Search Again\n");
             for (int i = 0; i < searchList.size(); i++) {
+                System.out.println(searchList.get(i).id);
                 System.out.println("- " + (i + 1) + " : " + ctlTarefas.getTarefaByID(searchList.get(i).id).getNome());
             }
 

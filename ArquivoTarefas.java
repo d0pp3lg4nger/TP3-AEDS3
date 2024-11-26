@@ -57,9 +57,6 @@ public class ArquivoTarefas extends Arquivo<Tarefa> {
         }
         map.forEach((k, v) -> {
             try {
-                System.out.println(k);
-                System.out.println(v);
-                System.out.println(tarefa.getId());
                 list.create(k, new ElementoLista(tarefa.getId(), v / words.length));
             } catch (Exception e) {
                 a = e;
@@ -104,20 +101,14 @@ public class ArquivoTarefas extends Arquivo<Tarefa> {
         }
 
         // deletando antigos no indice invertido
-        String[] oldWords = antigaTarefa.nome.split(" ");
+        String[] oldWords = stopWords.filter(antigaTarefa.nome.split(" "));
 
         for (String word : oldWords) {
-            word = Normalizer.normalize(word, Normalizer.Form.NFD).toLowerCase();
             list.delete(word, tarefa.getId());
         }
 
         // Adicionando no indice invertido
-
-        String[] temp = tarefa.nome.split(" ");
-        for (String w : temp) {
-            w = Normalizer.normalize(w, Normalizer.Form.NFD).toLowerCase();
-        }
-        String[] words = stopWords.filter(temp);
+        String[] words = stopWords.filter(tarefa.nome.split(" "));
 
         HashMap<String, Integer> map = new HashMap<String, Integer>();
 
@@ -129,10 +120,7 @@ public class ArquivoTarefas extends Arquivo<Tarefa> {
         }
         map.forEach((k, v) -> {
             try {
-                System.out.println(k);
-                System.out.println(v);
-                System.out.println(tarefa.getId());
-                list.create(k, new ElementoLista(v / words.length, tarefa.getId()));
+                list.create(k, new ElementoLista(tarefa.getId(), v / words.length));
             } catch (Exception e) {
                 a = e;
             }
