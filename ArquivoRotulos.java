@@ -3,8 +3,6 @@ import java.util.ArrayList;
 
 import aed3.Arquivo;
 import aed3.ArvoreBMais;
-import aed3.HashExtensivel;
-import aed3.ParIDEndereco;
 
 public class ArquivoRotulos extends Arquivo<Rotulo> {
     private ArvoreBMais<ParIdId> indiceTarefaRotulo;
@@ -88,7 +86,7 @@ public class ArquivoRotulos extends Arquivo<Rotulo> {
 
     public ArrayList<Rotulo> getRotulos() throws Exception {
 
-        ArrayList<Rotulo> rotulos = readN();
+        ArrayList<Rotulo> rotulos = readAll();
 
         return rotulos;
     }
