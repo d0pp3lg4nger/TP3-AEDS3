@@ -53,7 +53,7 @@ Estende a classe `Arquivo` para gerenciar os dados de tarefas.
 
 ---
 
-### Classe `MenuRotulos`
+### Classe `Rotulo`
 - **Métodos**:
 - `Rotulo()`: Construtor padrão que inicializa o rótulo com ID -1 e nome vazio.
 - `Rotulo(int id, String name)`: Construtor que inicializa o rótulo com ID e nome fornecidos.
