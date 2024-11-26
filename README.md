@@ -1,4 +1,4 @@
-# TP2 - Gerenciamento de Tarefas com Relacionamento Categoria
+# TP3 - Buscas e Relacionamento N:N
 
 Este projeto aprimora o sistema de gerenciamento de tarefas ao adicionar um relacionamento 1:N entre tarefas e categorias. Cada tarefa pode agora pertencer a uma categoria, que organiza e facilita a visualização e o controle das tarefas. 
 Para isso, foi utilizada uma árvore B+ para gerenciar as relações entre IDs de tarefas e categorias, um CRUD com índice direto para categorias e um índice indireto por nome para categorias, facilitando a busca e controle de exclusões vinculadas.
@@ -108,14 +108,11 @@ Fornece uma interface de menu para o gerenciamento de tarefas, permitindo ao usu
 
 ## Perguntas e Respostas
 
-- O CRUD (com índice direto) de categorias foi implementado? **Sim**.
-- Há um índice indireto de nomes para as categorias? **Sim**.
-- O atributo de ID de categoria, como chave estrangeira, foi criado na classe Tarefa? **Sim**.
-- Há uma árvore B+ que registre o relacionamento 1:N entre tarefas e categorias? **Sim**.
-- É possível listar as tarefas de uma categoria? **Sim**.
-- A remoção de categorias checa se há alguma tarefa vinculada a ela? **Sim**.
-- A inclusão da tarefa em uma categoria se limita às categorias existentes? **Sim**.
-- O trabalho está funcionando corretamente? **Sim**.
-- O trabalho está completo? **Sim**.
-- O trabalho é original e não a cópia de um trabalho de outro grupo? **Sim**.
+- O índice invertido com os termos das tarefas foi criado usando a classe ListaInvertida?
+- O CRUD de rótulos foi implementado?
+- No arquivo de tarefas, os rótulos são incluídos, alterados e excluídos em uma árvore B+? 
+- É possível buscar tarefas por palavras usando o índice invertido?
+- É possível buscar tarefas por rótulos usando uma árvore B+? 
+- O trabalho está completo?
+- O trabalho é original e não a cópia de um trabalho de um colega?
 
