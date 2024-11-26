@@ -97,20 +97,21 @@ Estende a classe `Arquivo` para gerenciar os dados de tarefas.
 
 ---
 
-### Classe `Categoria`
-Define a entidade `Categoria`, que permite organizar tarefas em grupos.
-- **Métodos**:
-  - `getId`: Retorna o ID da categoria.
-  - `setId`: Define o ID da categoria.
-  - `getNome`: Retorna o nome da categoria.
-  - `setNome`: Define o nome da categoria.
-  - `getChaveIndice`: Retorna a chave do índice com base no nome da categoria em letras minúsculas.
-  - `setExcluido`: Define o status de exclusão da categoria.
-  - `isExcluido`: Verifica se a categoria está marcada como excluída.
-  - `toByteArray`: Serializa o objeto `Categoria` em um array de bytes.
-  - `fromByteArray`: Reconstrói o objeto `Categoria` a partir de um array de bytes.
-  - `compareTo`: Compara a categoria atual com outra categoria pelo ID.
-  - `toString`: Retorna uma representação textual da categoria, exibindo ID e nome.
+# Classe `StopWords`
+
+A classe `StopWords` gerencia palavras consideradas irrelevantes em processos de filtragem de texto, como stopwords. Ela oferece funcionalidades para adicionar, excluir e listar essas palavras, além de permitir a refatoração dos dados para manter apenas palavras ativas.
+
+## Métodos:
+
+- `StopWords(String n)`: Construtor que cria o diretório necessário e inicializa o arquivo de armazenamento com o nome especificado. Configura o cabeçalho com a quantidade de palavras.
+- `create(String word)`: Adiciona uma única palavra ao arquivo de stopwords, normalizando-a e registrando-a com sua respectiva marcação e tamanho.
+- `create(String[] words)`: Adiciona um conjunto de palavras ao arquivo, atualizando o cabeçalho com a nova quantidade total de palavras.
+- `read()`: Lê todas as palavras do arquivo, retornando-as em um array de strings. Ignora palavras que foram excluídas (marcadas com "x").
+- `delete(String word)`: Exclui uma palavra, marcando-a como deletada no arquivo e atualizando o cabeçalho.
+- `getTotalAmount()`: Retorna o total de palavras, incluindo as excluídas, no arquivo.
+- `getAmount()`: Retorna a quantidade de palavras não excluídas armazenadas no arquivo.
+- `refactorData()`: Refatora o arquivo removendo as palavras excluídas e regravando apenas as palavras ativas.
+- `filter(String[] words)`: Filtra um array de palavras, removendo as consideradas stopwords e retornando um novo array com as palavras válidas.
 
 ---
 
