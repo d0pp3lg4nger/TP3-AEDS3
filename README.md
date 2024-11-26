@@ -44,6 +44,23 @@ Estende a classe `Arquivo` para gerenciar os dados de tarefas.
 
 ---
 
+### Classe `MenuTarefas`
+A classe `MenuTarefas` oferece uma interface interativa para gerenciamento de tarefas, permitindo ao usuário adicionar, excluir, atualizar, listar e buscar tarefas. Ela trabalha em conjunto com as classes `Tarefas_ctl`, `Categorias_ctl`, `Rotulos_ctl` e `ListaInvertida`, além de utilizar a classe `StopWords` para lidar com palavras de parada em alguns contextos relacionados às tarefas.
+- **Métodos**:
+- `MenuTarefas(Tarefas_ctl ctlTarefas, Categorias_ctl ctlCategorias, Rotulos_ctl ctlRotulos, ListaInvertida list, StopWords stopWords)`: Construtor que inicializa a classe com as instâncias das classes responsáveis pelo controle de tarefas, categorias, rótulos e lista invertida, além de um objeto `StopWords` e um scanner para capturar entradas do usuário.
+- `menu()`: Exibe o menu interativo e executa a ação correspondente com base na opção escolhida pelo usuário. O menu apresenta opções como incluir, excluir, atualizar, listar e buscar tarefas.
+- `adicionarTarefa()`: Permite ao usuário adicionar uma nova tarefa, pedindo informações como nome, categoria, rótulos, data de conclusão, status e prioridade.
+- `atualizarTarefa()`: Permite ao usuário atualizar uma tarefa existente, escolhendo uma tarefa da lista e modificando campos como nome, categoria, rótulos, data de conclusão, status e prioridade.
+- `excluirTarefa()`: Exclui uma tarefa específica, caso exista.
+- `listarTarefas()`: Exibe todas as tarefas cadastradas no sistema.
+- `buscarTarefas()`: Realiza uma busca de tarefas com base em critérios definidos.
+- `buscarPorNome()`: Permite ao usuário buscar tarefas por nome, utilizando um cálculo de probabilidade baseado em palavras-chave fornecidas.
+- `buscarPorCategoria()`: Permite ao usuário buscar tarefas por categoria, exibindo todas as tarefas relacionadas à categoria escolhida.
+- `buscarRotulos()`: Permite ao usuário buscar tarefas por rótulos, exibindo todas as tarefas associadas aos rótulos escolhidos.
+- `SearchElement`: Classe interna que representa um elemento de busca, contendo um `id` e a `probabilidade` associada a esse elemento. Implementa a interface `Comparable` para ordenar os resultados de busca.
+
+---
+
 ### Classe `ArquivoRotulos`
 Estende a classe `Arquivo` para gerenciar os dados de tarefas.
 - **Métodos**:
