@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class ArquivoRotulos extends Arquivo<Rotulo> {
     public void create(Rotulo rotulo) throws Exception {
         super.create(rotulo);
         indiceTarefaRotulo.create(new ParIdId(rotulo.getId(), -1));
-        indiceRotuloTarefa.create(new ParIdId(-1, rotulo.getId()));
+        indiceRotuloTarefa.create(new ParIdId(-2, rotulo.getId()));
 
     }
 
@@ -87,9 +88,23 @@ public class ArquivoRotulos extends Arquivo<Rotulo> {
     public ArrayList<Rotulo> getRotulos() throws Exception {
         ArrayList<Rotulo> rotulos = new ArrayList<>();
 
-        ArrayList<ParIdId> pares = indiceRotuloTarefa.read(new ParIdId(-1, -1));
+        ArrayList<ParIdId> pares = indiceRotuloTarefa.read(new ParIdId(-2, -1));
         for (ParIdId idR : pares) {
             Rotulo rotulo = read(idR.getId1());
+            if (rotulo != null) {
+                rotulos.add(rotulo);
+            }
+        }
+
+        return rotulos;
+    }
+
+    public ArrayList<Rotulo> getRotulosByTarefa(int idTarefa) throws Exception {
+        ArrayList<Rotulo> rotulos = new ArrayList<>();
+
+        ArrayList<ParIdId> pares = indiceTarefaRotulo.read(new ParIdId(idTarefa, -1));
+        for (ParIdId idR : pares) {
+            Rotulo rotulo = read(idR.getId2());
             if (rotulo != null) {
                 rotulos.add(rotulo);
             }

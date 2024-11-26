@@ -478,7 +478,7 @@ public class MenuTarefas {
     private void buscarPorCategoria() throws Exception {
 
         System.out.println("-----------------");
-        System.out.print("Categorias : ");
+        System.out.println("Categorias : ");
         ArrayList<Categoria> categorias = ctlCategorias.getCategorias();
         for (int i = 0; i < categorias.size(); i++) {
             System.out.println("\t(" + (i + 1) + ") " + categorias.get(i).getNome());
@@ -491,9 +491,17 @@ public class MenuTarefas {
         int idCategoria = categorias.get(escolhaCategoria - 1).getId();
 
         ArrayList<Tarefa> tarefas = ctlTarefas.getTarefasByCategoria(idCategoria);
-        System.out.print("\n Tarefas nessa categoria : ");
+        System.out.print("\n Tarefas nessa categoria : \n ");
         for (Tarefa tarefa : tarefas) {
             System.out.println(tarefa.toString());
+            ctlRotulos.getRotulosByTarefa(tarefa.getId()).forEach(
+                    Rotulo -> {
+                        try {
+                            System.out.println(Rotulo.toString());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    });
         }
 
         System.out.println("<> Enter para continuar...");

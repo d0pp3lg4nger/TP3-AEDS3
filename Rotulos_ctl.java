@@ -18,8 +18,12 @@ public class Rotulos_ctl {
         return arqRotulos.update(rotulo);
     }
 
-    public boolean excluirRotulo(int idRotulo) throws Exception {
-        return arqRotulos.delete(idRotulo);
+    public boolean excluirRotulo(int idTarefa) throws Exception {
+        return arqRotulos.delete(idTarefa);
+    }
+
+    public ArrayList<Rotulo> getRotulosByTarefa(int idTarefa) throws Exception {
+        return arqRotulos.getRotulosByTarefa(idTarefa);
     }
 
     public ArrayList<Rotulo> getRotulos() throws Exception {
