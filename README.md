@@ -97,12 +97,9 @@ Estende a classe `Arquivo` para gerenciar os dados de tarefas.
 
 ---
 
-# Classe `StopWords`
-
+### Classe `StopWords`
 A classe `StopWords` gerencia palavras consideradas irrelevantes em processos de filtragem de texto, como stopwords. Ela oferece funcionalidades para adicionar, excluir e listar essas palavras, além de permitir a refatoração dos dados para manter apenas palavras ativas.
-
-## Métodos:
-
+- **Métodos**:
 - `StopWords(String n)`: Construtor que cria o diretório necessário e inicializa o arquivo de armazenamento com o nome especificado. Configura o cabeçalho com a quantidade de palavras.
 - `create(String word)`: Adiciona uma única palavra ao arquivo de stopwords, normalizando-a e registrando-a com sua respectiva marcação e tamanho.
 - `create(String[] words)`: Adiciona um conjunto de palavras ao arquivo, atualizando o cabeçalho com a nova quantidade total de palavras.
