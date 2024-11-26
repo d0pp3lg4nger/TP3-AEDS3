@@ -163,14 +163,7 @@ public class ArquivoTarefas extends Arquivo<Tarefa> {
         Tarefa tarefa = read(id);
 
         // deletando no indice invertido
-        String[] temp = read(id).nome.split(" ");
-
-        for (String word : temp) {
-            word = Normalizer.normalize(word, Normalizer.Form.NFD)
-                    .toLowerCase();
-        }
-
-        String[] words = stopWords.filter(temp);
+        String[] words = stopWords.filter(read(id).nome.split(" "));
 
         for (String word : words) {
             list.delete(word, id);
