@@ -1,4 +1,3 @@
-import java.text.Normalizer;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -328,10 +327,11 @@ public class MenuTarefas {
             for (Tarefa tarefa : tarefas) {
                 System.out.println(tarefa.toString());
                 System.out.println("Categoria: " + ctlCategorias.getCategoriaById(tarefa.getIdCategoria()).toString());
+                System.out.println("Rotulos: ");
                 ctlRotulos.getRotulosByTarefa(tarefa.getId()).forEach(
                         Rotulo -> {
                             try {
-                                System.out.println("Rotulo: " + Rotulo.toString());
+                                System.out.println(Rotulo.toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -406,7 +406,7 @@ public class MenuTarefas {
         do {
 
             System.out.println("-----------------");
-            System.out.print("\n : ");
+            System.out.print("\n<>: ");
 
             // Calculate Probability for Name
             String[] words = scanner.nextLine().split(" ");
@@ -452,31 +452,44 @@ public class MenuTarefas {
             searchList.sort(null);
 
             // get Tarefas
-            System.out.println("- 0 : Search Again\n");
-            for (int i = 0; i < searchList.size(); i++) {
-                System.out.println(searchList.get(i).id);
-                System.out.println("- " + (i + 1) + " : " + ctlTarefas.getTarefaByID(searchList.get(i).id).getNome());
-            }
+            if (searchList.isEmpty()) {
+                System.out.println("\n<!> Nenhuma tarefa encontrada, -1 para sair, 0 para buscar de novo.");
 
-            // select
-            opt = scanner.nextInt();
+                System.out.print("Opcao: ");
+                // select
+                opt = scanner.nextInt();
+                scanner.nextLine();
+            } else {
+                System.out.println("\nTarefas encontradas : ");
+                for (int i = 0; i < searchList.size(); i++) {
+                    System.out
+                            .println("- " + (i + 1) + " : " + ctlTarefas.getTarefaByID(searchList.get(i).id).getNome());
+                }
+                System.out.println("- 0 : Buscar de novo");
+                System.out.println("- -1 : Sair");
 
-            Tarefa tarefa = ctlTarefas.getTarefaByID(searchList.get(opt - 1).id);
+                System.out.print("Opcao: ");
+                // select
+                opt = scanner.nextInt();
+                scanner.nextLine();
 
-            if (opt > 0 && opt <= searchList.size()) {
-                System.out.println("-----------------");
-                System.out.println(tarefa.toString());
-                System.out.println("Categoria: " + ctlCategorias.getCategoriaById(tarefa.getIdCategoria()).toString());
-                ctlRotulos.getRotulosByTarefa(tarefa.getId()).forEach(
-                        Rotulo -> {
-                            try {
-                                System.out.println(Rotulo.toString());
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        });
-                System.out.println();
-                return;
+                if (opt > 0 && opt <= searchList.size()) {
+                    Tarefa tarefa = ctlTarefas.getTarefaByID(searchList.get(opt - 1).id);
+                    System.out.println("-----------------");
+                    System.out.println(tarefa.toString());
+                    System.out.println(
+                            "Categoria: " + ctlCategorias.getCategoriaById(tarefa.getIdCategoria()).toString());
+                    System.out.println("Rotulos: ");
+                    ctlRotulos.getRotulosByTarefa(tarefa.getId()).forEach(
+                            Rotulo -> {
+                                try {
+                                    System.out.println(Rotulo.toString());
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            });
+                    System.out.println();
+                }
             }
 
         } while (opt == 0);
@@ -502,6 +515,7 @@ public class MenuTarefas {
         for (Tarefa tarefa : tarefas) {
             System.out.println(tarefa.toString());
             System.out.println("Categoria: " + ctlCategorias.getCategoriaById(tarefa.getIdCategoria()).toString());
+            System.out.println("Rotulos: ");
             ctlRotulos.getRotulosByTarefa(tarefa.getId()).forEach(
                     Rotulo -> {
                         try {
