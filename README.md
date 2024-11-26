@@ -1,7 +1,6 @@
 # TP3 - Buscas e Relacionamento N:N
 
-Este projeto aprimora o sistema de gerenciamento de tarefas ao adicionar um relacionamento 1:N entre tarefas e categorias. Cada tarefa pode agora pertencer a uma categoria, que organiza e facilita a visualização e o controle das tarefas. 
-Para isso, foi utilizada uma árvore B+ para gerenciar as relações entre IDs de tarefas e categorias, um CRUD com índice direto para categorias e um índice indireto por nome para categorias, facilitando a busca e controle de exclusões vinculadas.
+Este projeto expande as funcionalidades do sistema de gerenciamento de tarefas ao adicionar um relacionamento N:N entre tarefas, categorias e rotulos, permitindo que uma tarefa esteja vinculada a várias categorias e vice-versa. Além disso, foi implementado um mecanismo de buscas por termos nas tarefas utilizando listas invertidas, otimizando a eficiência na recuperação de informações. O uso de estruturas como as listas invertidas para os termos e uma tabela de associação para gerenciar as relações N:N garante maior flexibilidade e desempenho na manipulação e busca dos dados, mesmo em cenários de grande volume.
 
 ## Alunos
 
